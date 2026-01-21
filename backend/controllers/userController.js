@@ -228,14 +228,30 @@ const listAppointment = async (req, res) => {
     }
 }
 
+const autoPayAppointment = async (req, res) => {
+  try {
+    const { appointmentId } = req.body;
 
+    await appointmentModel.findByIdAndUpdate(appointmentId, {
+      payment: true,
+      paymentMethod: "Online (Demo)",
+      paymentStatus: "Paid",
+    });
+
+    res.json({ success: true });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: error.message });
+  }
+};
 
 export {
-    loginUser,
-    registerUser,
-    getProfile,
-    updateProfile,
-    bookAppointment,
-    listAppointment,
-    cancelAppointment,
-}
+  loginUser,
+  registerUser,
+  getProfile,
+  updateProfile,
+  bookAppointment,
+  listAppointment,
+  cancelAppointment,
+  autoPayAppointment,
+};
