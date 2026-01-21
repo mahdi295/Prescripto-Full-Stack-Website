@@ -29,7 +29,6 @@ const AppContextProvider = (props) => {
             console.log(error)
             toast.error(error.message)
         }
-
     }
 
     // Getting User Profile using API
