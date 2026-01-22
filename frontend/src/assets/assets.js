@@ -39,6 +39,8 @@ import Pediatricians from './Pediatricians.svg'
 export const assets = {
     appointment_img,
     header_img,
+    doc1,
+    doc2,
     group_profiles,
     logo,
     chats_icon,
